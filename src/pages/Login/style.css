@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
+.box {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tituloLogin {
+    font-size: 160px;
+    color: #FF0707;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.loginBox {
+    background-color: rgba(80, 80, 80, .65);
+    width: 750px;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+       
+}
+
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputsContainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+input {
+    border-radius: 5px;
+    width: 606px;
+    height: 80px;
+    padding-left: 10px;
+    font-size: 30px;
+}
+
+input + input {
+    margin-top: 20px;
+}
+
+button { 
+    margin-top: 20px;
+    background-color: #FF0707;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+}
+
+h1{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 800px) {
+    .tituloLogin {
+        font-size: 100px;
+    }
+
+    .loginBox {
+        background-color: rgba(80, 80, 80, .65);
+        width: 600px;
+        height: 300px;          
+    }
+
+    .inputsContainer{
+        font-size: 12px;
+    }
+
+    input {
+        border-radius: 5px;
+        width: 450px;
+        height: 60px;
+        padding-left: 10px;
+        font-size: 30px;
+    }
+    
+    button { 
+        margin-top: 16px;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .tituloLogin {
+        font-size: 100px;
+    }
+
+    .loginBox {
+        background-color: rgba(80, 80, 80, .65);
+        width: 350px;
+        height: 250px;          
+    }
+
+    .inputsContainer{
+        font-size: 8px;
+    }
+
+    input {
+        border-radius: 5px;
+        width: 330px;
+        height: 40px;
+        padding-left: 10px;
+        font-size: 20px;
+    }
+
+    h1{
+        font-size: 24px;
+    }
+    
+    button { 
+        margin-top: 12px;
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 290px) {
+    .tituloLogin {
+        font-size: 60px;
+    }
+
+    .loginBox {
+        background-color: rgba(80, 80, 80, .65);
+        width: 250px;
+        height: 200px;          
+    }
+
+    .inputsContainer{
+        font-size: 8px;
+    }
+
+    input {
+        border-radius: 5px;
+        width: 220px;
+        height: 34px;
+        padding-left: 10px;
+        font-size: 20px;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+    
+    button { 
+        margin-top: 12px;
+        font-size: 22px;
+    }
+}
+
+
