@@ -44,7 +44,7 @@ function Menu() {
 					<button
 						id="menu-btn"
 						class="block hamburger md:hidden focus:outline-none"
-						onclick={"openMenu()"}
+						onClick={"openMenu()"}
 					>
 						<span class="hamburger-top"></span>
 						<span class="hamburger-middle"></span>
