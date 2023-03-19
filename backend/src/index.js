@@ -1,9 +1,12 @@
 const express = require('express');
-const cors = require('cors');
-const { Pool } = require('pg')
+const cors = require('cors')
+const { Pool } = require('pg');
 require('dotenv').config();
 
 const app = express();
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 const pool = new Pool({
     connectionString: process.env.POSTGRES_URL
@@ -12,7 +15,6 @@ const pool = new Pool({
 const PORT = process.env.PORT || 3333
 
 app.use(express.json());
-app.use(cors);
 
 app.get('/', (req, res) => {console.log('ola mundo')});
 
