@@ -15,7 +15,7 @@ export function Login() {
 					<div className="inputsContainer">
 						<input placeholder="E-mail"></input>
 						<input placeholder="Senha" type={"password"}></input>
-						<button >ENTRAR</button>
+						<button>ENTRAR</button>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,72 @@
+.row {
+    display: flex;
+}
+
+.contentFilm {
+    padding: 40px;
+    flex: 50%;
+}
+
+.contentFilm h1{
+    font-size: 64px;
+    flex: 50%;
+}
+
+.contentFilm p{
+    font-size:175%;
+    flex: 50%;
+}
+
+.contentFilm p+p{
+    font-weight: 700;
+}
+
+.contentFilm br+p{
+    font-weight: 700;
+}
+
+
+.posterFilm{
+    flex: 50%;
+    padding: 30px;
+}
+
+.posterFilm .filmImage{
+    width: 60%;
+    border-radius: 15px;
+    margin-left: 10%;
+}
+
+@media only screen and (max-width: 950px) {
+    .row {
+        display: block;
+    }
+
+    .posterFilm .filmImage{
+        width: 80%;
+        border-radius: 15px;
+        margin-left: 10%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .row {
+        display: block;
+    }
+
+    .contentFilm h1{
+        font-size: 48px;
+        flex: 50%;
+    }
+
+    .contentFilm p{
+        font-size:120%;
+        flex: 50%;
+    }
+
+    .posterFilm .filmImage{
+        width: 90%;
+        border-radius: 15px;
+        margin-left: 10%;
+    }
+}
