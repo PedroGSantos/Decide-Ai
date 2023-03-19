@@ -35,25 +35,20 @@
     flex-direction: column;
 }
 
+.loginContainer h1{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .inputsContainer{
     display: flex;
     flex-direction: column;
     font-size: 20px;
 }
 
-input {
-    border-radius: 5px;
-    width: 606px;
-    height: 80px;
-    padding-left: 10px;
-    font-size: 30px;
-}
-
-input + input {
-    margin-top: 20px;
-}
-
-button { 
+.inputsContainer button{
     margin-top: 20px;
     background-color: #FF0707;
     border-radius: 5px;
@@ -62,11 +57,17 @@ button {
     font-size: 40px;
 }
 
-h1{
-    color: white;
-    font-family: 'Roboto', sans-serif;
+.inputsContainer input{
+    border-radius: 5px;
+    width: 606px;
+    height: 80px;
+    padding-left: 10px;
     font-size: 30px;
-    font-weight: bold;
+    color: black;
+}
+
+input + input {
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -84,7 +85,7 @@ h1{
         font-size: 12px;
     }
 
-    input {
+    .inputsContainer input{
         border-radius: 5px;
         width: 450px;
         height: 60px;
@@ -92,7 +93,7 @@ h1{
         font-size: 30px;
     }
     
-    button { 
+    .inputsContainer button{
         margin-top: 16px;
         font-size: 30px;
     }
@@ -113,7 +114,7 @@ h1{
         font-size: 8px;
     }
 
-    input {
+    .inputsContainer input{
         border-radius: 5px;
         width: 330px;
         height: 40px;
@@ -121,11 +122,11 @@ h1{
         font-size: 20px;
     }
 
-    h1{
+    .loginContainer h1{
         font-size: 24px;
     }
     
-    button { 
+    .inputsContainer button{
         margin-top: 12px;
         font-size: 24px;
     }
@@ -146,7 +147,7 @@ h1{
         font-size: 8px;
     }
 
-    input {
+    .inputsContainer input{
         border-radius: 5px;
         width: 220px;
         height: 34px;
@@ -154,11 +155,11 @@ h1{
         font-size: 20px;
     }
 
-    h1{
+    .loginContainer h1{
         font-size: 20px;
     }
     
-    button { 
+    .inputsContainer button{
         margin-top: 12px;
         font-size: 22px;
     }
