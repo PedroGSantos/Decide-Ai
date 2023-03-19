@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const { Pool } = require('pg')
 require('dotenv').config();
 
@@ -12,7 +11,6 @@ const pool = new Pool({
 const PORT = process.env.PORT || 3333
 
 app.use(express.json());
-app.use(cors);
 
 app.get('/', (req, res) => {console.log('ola mundo')});
 
