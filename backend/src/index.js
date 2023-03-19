@@ -1,8 +1,12 @@
 const express = require('express');
-const { Pool } = require('pg')
+const cors = require('cors')
+const { Pool } = require('pg');
 require('dotenv').config();
 
 const app = express();
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 const pool = new Pool({
     connectionString: process.env.POSTGRES_URL
