@@ -7,18 +7,19 @@ export function SugerirFilmes() {
 	const navigation = useNavigate();
 	const [dataMovie, setDataMovie] = useState();
 	const [descriptionAndImage, setDescriptionAndImage] = useState("");
+	const api_key = process.env.REACT_APP_API_KEY;
 
 	async function getRandomMovie(e) {
 		e.preventDefault();
 
-		const apiUrl = `https://imdb-api.com/API/AdvancedSearch/k_hytc533h?release_date=${e.target.year.value}-01-01,&genres=${e.target.genre.value}&certificates=us:${e.target.certificates.value}&countries=${e.target.country.value}`;
-
+		const apiUrl = `https://imdb-api.com/API/AdvancedSearch/${api_key}?release_date=${e.target.year.value}-01-01,&genres=${e.target.genre.value}&certificates=us:${e.target.certificates.value}&countries=${e.target.country.value}`;
+		console.log(api_key)
 		await fetch(apiUrl)
 			.then((response) => response.json())
 			.then((data) => {
 				setDataMovie(data.results[0]);
 				const id = data.results[0].id;
-				const url = `https://imdb-api.com/pt/API/Title/k_hytc533h/${id}/FullActor,Posters,Wikipedia`;
+				const url = `https://imdb-api.com/pt/API/Title/${api_key}/${id}/FullActor,Posters,Wikipedia`;
 				fetch(url)
 					.then((response) => response.json())
 					.then((dataa) => {
