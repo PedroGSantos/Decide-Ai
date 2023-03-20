@@ -55,7 +55,6 @@ app.put("/users/:userId/movies", async (req, res) => {
 	const userId = req.params.userId;
 	const { title, id } = req.body;
 	try {
-		// Retrieve the user's data from the database
 		const result = await pool.query(
 			"SELECT * FROM users WHERE user_id = $1",
 			[userId]
@@ -63,7 +62,6 @@ app.put("/users/:userId/movies", async (req, res) => {
 		const user = result.rows[0];
 
 		if (!user.watchedmovies) {
-			// If the user hasn't watched any movies yet, create an empty array for their "watchedMovies" property
 			user.watchedmovies = [];
 		}
 
@@ -74,8 +72,6 @@ app.put("/users/:userId/movies", async (req, res) => {
 			}
 		}
 		user.watchedmovies.push({ title, id });
-
-		// Update the user's data in the database with the new "watchedMovies" array
 		await pool.query(
 			"UPDATE users SET watchedMovies = $1 WHERE user_id = $2",
 			[user.watchedmovies, userId]
@@ -91,7 +87,6 @@ app.put("/users/:userId/movies_list", async (req, res) => {
 	const userId = req.params.userId;
 	const listMovies = req.body;
 	try {
-		// Retrieve the user's data from the database
 		const result = await pool.query(
 			"SELECT * FROM users WHERE user_id = $1",
 			[userId]
@@ -99,7 +94,6 @@ app.put("/users/:userId/movies_list", async (req, res) => {
 		const user = result.rows[0];
 
 		if (!user.watchedmovies) {
-			// If the user hasn't watched any movies yet, create an empty array for their "watchedMovies" property
 			user.watchedmovies = [];
 		}
 
@@ -115,8 +109,6 @@ app.put("/users/:userId/movies_list", async (req, res) => {
 				user.watchedmovies.push(content);
 			}
 		}
-
-		// Update the user's data in the database with the new "watchedMovies" array
 		await pool.query(
 			"UPDATE users SET watchedMovies = $1 WHERE user_id = $2",
 			[user.watchedmovies, userId]
@@ -132,7 +124,6 @@ app.delete("/users/:userId/movies/:movieId", async (req, res) => {
 	const userId = req.params.userId;
 	const movieId = req.params.movieId;
 	try {
-		// Retrieve the user's data from the database
 		const result = await pool.query(
 			"SELECT * FROM users WHERE user_id = $1",
 			[userId]
@@ -140,7 +131,6 @@ app.delete("/users/:userId/movies/:movieId", async (req, res) => {
 		const user = result.rows[0];
 
 		if (!user.watchedmovies) {
-			// If the user hasn't watched any movies yet, create an empty array for their "watchedMovies" property
 			user.watchedmovies = [];
 		}
 
@@ -148,7 +138,6 @@ app.delete("/users/:userId/movies/:movieId", async (req, res) => {
 			(movie) => movie.id != movieId
 		);
 
-		// Update the user's data in the database with the new "watchedMovies" array
 		await pool.query(
 			"UPDATE users SET watchedMovies = $1 WHERE user_id = $2",
 			[user.watchedmovies, userId]
