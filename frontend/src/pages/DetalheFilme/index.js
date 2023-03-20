@@ -11,12 +11,9 @@ export function DetalheFilme() {
 	async function getDetailMovie() {
 		const url = `https://imdb-api.com/pt/API/Title/${api_key}/${id_film}/FullActor,Posters,Wikipedia`;
 	
-		// Make a request to the API to retrieve the list of users
 		fetch(url)
 		  .then(response => response.json())
 		  .then(data => {
-			console.log('teste')
-			console.log(data)
 			setDetailMovie(data);
 		  })
 		  .catch(error => console.error(error));
@@ -46,9 +43,6 @@ export function DetalheFilme() {
 				</div>
 			</div>
 		</div>
-
-
-	
 	)
 
 }
