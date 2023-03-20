@@ -27,9 +27,13 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-       
 }
 
+.loginBox p{
+    color: red;
+    font-weight: 700;
+    align-self: center;
+}
 .loginContainer{
     display: flex;
     flex-direction: column;
@@ -163,6 +167,7 @@ input + input {
         margin-top: 12px;
         font-size: 22px;
     }
+
 }
 
 
