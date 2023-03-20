@@ -25,16 +25,16 @@ function Menu() {
 	];
 	return (
 		<div>
-			<nav class="na+vbar relative container mx-auto p-4">
-				<div class="flex items-center justify-between">
-					<div class="pt-2 flex space-x-6">
-						<p class="bebas-neue md:text-6xl text-4xl text-red-500">
+			<nav className="na+vbar relative container mx-auto p-4">
+				<div className="flex items-center justify-between">
+					<div className="pt-2 flex space-x-6">
+						<p className="bebas-neue md:text-6xl text-4xl text-red-500">
 							DECIDE AÍ
 						</p>
 					</div>
-					<div class="hidden md:flex space-x-8">
+					<div className="hidden md:flex space-x-8">
 						{url.map((data) => (
-							<Link to={data.url} class="hover:text-red-700">
+							<Link to={data.url} className="hover:text-red-700">
 								{" "}
 								{data.name}{" "}
 							</Link>
@@ -43,20 +43,20 @@ function Menu() {
 
 					<button
 						id="menu-btn"
-						class="block hamburger md:hidden focus:outline-none"
+						className="block hamburger md:hidden focus:outline-none"
 						onClick={"openMenu()"}
 					>
-						<span class="hamburger-top"></span>
-						<span class="hamburger-middle"></span>
-						<span class="hamburger-bottom"></span>
+						<span className="hamburger-top"></span>
+						<span className="hamburger-middle"></span>
+						<span className="hamburger-bottom"></span>
 					</button>
 				</div>
 				<div id="optionsMenu">
 					<div
 						id="menu"
-						class="absolute flex-col items-center self-end hidden py-8 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+						className="absolute flex-col items-center self-end hidden py-8 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
 					>
-						<Link to={"/"} class="hover:text-red-700">
+						<Link to={"/"} className="hover:text-red-700">
 							Sair
 						</Link>
 					</div>

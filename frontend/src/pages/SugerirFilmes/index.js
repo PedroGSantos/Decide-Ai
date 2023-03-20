@@ -65,45 +65,49 @@ export function SugerirFilmes() {
 		<div>
 			<Menu />
 			{!dataMovie && (
-				<div class="background-image-films">
+				<div className="background-image-films">
 					<form id="content" onSubmit={getRandomMovie}>
-						<p class="bebas-neue text-2xl pq:text-3xl sm:text-4xl mt-7 sm:mt-16 text-center">
+						<p className="bebas-neue text-2xl pq:text-3xl sm:text-4xl mt-7 sm:mt-16 text-center">
 							chegou o momento! nOSSo site irá decidir qual filme
 							você verá hoje
 						</p>
-						<div class="sm:w-1/4 w-2/4 flex flex-col">
-							<label class="mt-9 pq:text-2xl text-xl">ANO</label>
+						<div className="sm:w-1/4 w-2/4 flex flex-col">
+							<label className="mt-9 pq:text-2xl text-xl">
+								ANO
+							</label>
 							<input
 								type="number"
-								class="inputMovie"
+								className="inputMovie"
 								name="year"
 							/>
 						</div>
-						<div class="sm:w-1/4 w-2/4 flex flex-col">
-							<label class="mt-9 pq:text-2xl text-xl">
+						<div className="sm:w-1/4 w-2/4 flex flex-col">
+							<label className="mt-9 pq:text-2xl text-xl">
 								GÊNERO
 							</label>
 							<input
 								type="text"
-								class="inputMovie"
+								className="inputMovie"
 								name="genre"
 							/>
 						</div>
-						<div class="sm:w-1/4 w-2/4 flex flex-col">
-							<label class="mt-9 pq:text-2xl text-xl">PAÍS</label>
+						<div className="sm:w-1/4 w-2/4 flex flex-col">
+							<label className="mt-9 pq:text-2xl text-xl">
+								PAÍS
+							</label>
 							<input
 								type="text"
-								class="inputMovie"
+								className="inputMovie"
 								name="country"
 							/>
 						</div>
-						<div class="sm:w-1/4 w-2/4 flex flex-col">
-							<label class="mt-9 pq:text-2xl text-xl">
+						<div className="sm:w-1/4 w-2/4 flex flex-col">
+							<label className="mt-9 pq:text-2xl text-xl">
 								FAIXA ETÁRIA
 							</label>
 							<input
 								type="text"
-								class="inputMovie"
+								className="inputMovie"
 								name="certificates"
 							/>
 						</div>
@@ -118,23 +122,23 @@ export function SugerirFilmes() {
 			)}
 			{dataMovie && (
 				<div id="content2" onClick={openDetails}>
-					<p class="bebas-neue text-2xl pq:text-3xl sm:text-4xl lg:mt-20 mt-7">
+					<p className="bebas-neue text-2xl pq:text-3xl sm:text-4xl lg:mt-20 mt-7">
 						ESSE É O FILME IDEAL PARA VOCÊ
 					</p>
 					<button id="buttonCheck" onClick={addMovie}>
 						<p
-							class="bebas-neue sm:text-2xl text-[#26C90B] text-start"
+							className="bebas-neue sm:text-2xl text-[#26C90B] text-start"
 							id="textCheck"
 						>
 							MARCAR COMO ASSISTIDO
 						</p>
 						<i
-							class="fa-sharp fa-solid fa-circle-check color-red text-xl"
+							className="fa-sharp fa-solid fa-circle-check color-red text-xl"
 							id="iconCheck"
 						></i>
 					</button>
 					<div
-						class="movieContainer"
+						className="movieContainer"
 						style={{
 							backgroundImage: `linear-gradient(rgba(1,1,1,0.65), rgba(1,1,1,0.65)), url(https://image.tmdb.org/t/p/original/aUQKIpZZ31KWbpdHMCmaV76u78T.jpg)`,
 							backgroundSize: "100%",
@@ -143,14 +147,14 @@ export function SugerirFilmes() {
 						<div id="mainText">
 							<p
 								id="titleMovie"
-								class="pq:text-6xl text-xl"
+								className="pq:text-6xl text-xl"
 								style={{
 									opacity: 1,
 								}}
 							>
 								{dataMovie.title}
 							</p>
-							<p id="sinopse" class="md:text-base text-xs">
+							<p id="sinopse" className="md:text-base text-xs">
 								{descriptionAndImage.description}
 							</p>
 						</div>
