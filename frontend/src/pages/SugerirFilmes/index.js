@@ -5,22 +5,38 @@ import "./styles.css";
 
 export function SugerirFilmes() {
 	const [dataMovie, setDataMovie] = useState();
-
+	const [descriptionAndImage, setDescriptionAndImage] = useState("");
 	async function getRandomMovie(e) {
 		e.preventDefault();
 
-		const apiUrl = `https://imdb-api.com/API/AdvancedSearch/k_s7ar6knl?release_date=${e.target.year.value}-01-01,&genres=${e.target.genre.value}&certificates=us:${e.target.certificates.value}&countries=${e.target.country.value}`;
-		console.log(apiUrl);
-		fetch(apiUrl)
+		const apiUrl = `https://imdb-api.com/API/AdvancedSearch/k_hg4pap4f?release_date=${e.target.year.value}-01-01,&genres=${e.target.genre.value}&certificates=us:${e.target.certificates.value}&countries=${e.target.country.value}`;
+
+		await fetch(apiUrl)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data.results[0]);
 				setDataMovie(data.results[0]);
+				const id = data.results[0].id;
+				const url = `https://imdb-api.com/pt/API/Title/k_12345678/${id}/FullActor,Posters,Wikipedia`;
+				fetch(url)
+					.then((response) => response.json())
+					.then((dataa) => {
+						console.log(
+							dataa.posters.posters[
+								Array(dataa.posters.posters).length
+							].link
+						);
+						setDescriptionAndImage({
+							description: dataa.plotLocal,
+							image: dataa.posters.posters[
+								Array(dataa.posters.posters).length
+							].link,
+						});
+					});
 			});
 	}
 
 	return (
-		<div id="container">
+		<div>
 			<Menu />
 			{!dataMovie && (
 				<div class="background-image-films">
@@ -67,8 +83,7 @@ export function SugerirFilmes() {
 						</div>
 						<button
 							id="buttonMovie"
-							class="pq:text-4xl text-lg sm:w-1/3 w-3/4 "
-							type="submit"
+							className="pq:text-4xl text-lg sm:w-1/3 w-3/4 bg-red-#FF0707 hover:bg-red-700 active:bg-red-400"
 						>
 							DECIDIR
 						</button>
@@ -80,9 +95,9 @@ export function SugerirFilmes() {
 					<p class="bebas-neue text-2xl pq:text-3xl sm:text-4xl lg:mt-20 mt-7">
 						ESSE É O FILME IDEAL PARA VOCÊ
 					</p>
-					<a id="buttonCheck" href="../DetalheFilme/index.html">
+					<button id="buttonCheck" onClick={addMovie}>
 						<p
-							class="bebas-neue  sm:text-2xl text-positive text-start"
+							class="bebas-neue sm:text-2xl text-[#26C90B] text-start"
 							id="textCheck"
 						>
 							MARCAR COMO ASSISTIDO
@@ -91,36 +106,26 @@ export function SugerirFilmes() {
 							class="fa-sharp fa-solid fa-circle-check color-red text-xl"
 							id="iconCheck"
 						></i>
-					</a>
-					<div id="movieContainer">
-						<div id="containerImage">
-							<img
-								src={`${dataMovie.results?.[0].image} `}
-								id="imgFilme"
-							/>
-						</div>
-						<div id="infoContainer">
-							<div class="box">
-								<p class="textBox">2004</p>
-							</div>
-							<div class="box">
-								<p class="textBox">AVENTURA</p>
-							</div>
-						</div>
+					</button>
+					<div
+						class="movieContainer"
+						style={{
+							backgroundImage: `linear-gradient(rgba(1,1,1,0.65), rgba(1,1,1,0.65)), url(${descriptionAndImage.image})`,
+							backgroundSize: "100%",
+						}}
+					>
 						<div id="mainText">
-							<p id="titleMovie" class="pq:text-6xl text-xl">
-								SHREK 2
+							<p
+								id="titleMovie"
+								class="pq:text-6xl text-xl"
+								style={{
+									opacity: 1,
+								}}
+							>
+								{dataMovie.title}
 							</p>
 							<p id="sinopse" class="md:text-base text-xs">
-								Shrek e Fiona acabaram de voltar da lua de mel e
-								vivem felizes em sua casa no pântano. O casal
-								recebe um convite dos pais da princesa, que
-								querem conhecer o novo genro, para um jantar no
-								castelo. Eles ficaram sabendo que Fiona havia se
-								casado com o seu verdadeiro amor, mas o que eles
-								ainda não sabem é que este amor é um ogro
-								mal-educado de mais de 300 quilos, que conta com
-								um burro falante como melhor amigo.
+								{descriptionAndImage.description}
 							</p>
 						</div>
 					</div>
