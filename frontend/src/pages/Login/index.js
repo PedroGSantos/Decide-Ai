@@ -22,7 +22,7 @@ export function Login() {
 			setErrorLogin(true);
 			return
 		}else if(password === user.password){
-			localStorage.setItem('user', user)
+			localStorage.setItem('user', user.email)
 			navigate("/filmesAssistidos")
 		}else{
 			setErrorLogin(true);

@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Menu from "../../components/menu";
+import { useParams } from "react-router";
 import './style.css'
 
-export function DetalheFilme() {
+export function DetalheFilme(props) {
 
 	const [detailMovie, setDetailMovie] = useState([]);
-	const api_key = "k_6ngqf1cb"
-	const id_film = "tt0298148"
+	const api_key = "k_s7ar6knl";
+	const { id } = useParams();
+	const id_film = id;
 
 	async function getDetailMovie() {
 		const url = `https://imdb-api.com/pt/API/Title/${api_key}/${id_film}/FullActor,Posters,Wikipedia`;
+
+		console.log(id_film);
 	
-		fetch(url)
+		await fetch(url)
 		  .then(response => response.json())
 		  .then(data => {
 			setDetailMovie(data);
@@ -23,7 +27,7 @@ export function DetalheFilme() {
 		getDetailMovie();
 	}, [id_film]);
 
-	//getDetailMovie()
+	// getDetailMovie()
 
 	return (
 		<div>
@@ -39,7 +43,7 @@ export function DetalheFilme() {
 				</div>
 
 				<div className="posterFilm">
-					<img className="filmImage" id="filmImage" src={detailMovie.posters.posters[0].link} alt=""></img>
+					{detailMovie.posters && <img className="filmImage" id="filmImage" src={detailMovie.posters.posters[0].link} alt=""></img>}
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,7 @@ export default function Navigation() {
 				<Route path="/" element={<Home />} />
 				<Route path="/sugerirFilmes" element={<SugerirFilmes />} />
 				<Route path="/login" element={<Login />} />
-				<Route path="/detalheFilme" element={<DetalheFilme />} />
+				<Route path="/detalheFilme/:id" element={<DetalheFilme />} />
 				<Route path="/filmesAssistidos" element={<FilmesAssistidos />} />
 			</Routes>
 		</BrowserRouter>

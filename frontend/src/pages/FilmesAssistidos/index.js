@@ -9,9 +9,10 @@ export function FilmesAssistidos() {
   const [watchedMovies, setWatchedMovies] = useState([]);
   const [inputMovie, setInputMovie] = useState("");
   const [notFound, setnotFound] = useState("");
-  const email = "italo@gmail.com";
+  const email = localStorage.getItem('user');
 
   async function getWatchedMovies() {
+    console.log(email);
     const url = `http://localhost:3333/users`;
 
     // Make a request to the API to retrieve the list of users
@@ -20,8 +21,6 @@ export function FilmesAssistidos() {
       .then(data => {
         // Filter the list of users to find the user with the specified email address
         const user = data.find(user => user.email === email);
-
-        console.log(user.user_id);
 
         if (user && user.watchedmovies) {
           const promises = user.watchedmovies.map((movie) => {
