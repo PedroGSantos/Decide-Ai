@@ -9,10 +9,11 @@ export function FilmesAssistidos() {
   const [watchedMovies, setWatchedMovies] = useState([]);
   const [inputMovie, setInputMovie] = useState("");
   const [notFound, setnotFound] = useState("");
-  const email = localStorage.getItem('user');
+  const email = localStorage.getItem('email');
+  const id = localStorage.getItem('id');
 
   async function getWatchedMovies() {
-    console.log(email);
+    console.log(id, email, 'test');
     const url = `http://localhost:3333/users`;
 
     // Make a request to the API to retrieve the list of users

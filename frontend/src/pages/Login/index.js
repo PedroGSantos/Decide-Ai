@@ -22,7 +22,8 @@ export function Login() {
 			setErrorLogin(true);
 			return
 		}else if(password === user.password){
-			localStorage.setItem('user', user.email)
+			localStorage.setItem('email', user.email)
+			localStorage.setItem('id', user.user_id)
 			navigate("/filmesAssistidos")
 		}else{
 			setErrorLogin(true);
