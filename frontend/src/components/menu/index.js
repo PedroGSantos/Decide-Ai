@@ -1,6 +1,10 @@
 import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 function Menu() {
 	function openMenu() {
 		const btn = document.getElementById("menu-btn");
@@ -39,12 +43,15 @@ function Menu() {
 								{data.name}{" "}
 							</Link>
 						))}
+						<Link to="/login">
+							<FontAwesomeIcon className="hover:text-red-700" icon={faRightFromBracket} />
+						</Link>
 					</div>
 
 					<button
 						id="menu-btn"
 						class="block hamburger md:hidden focus:outline-none"
-						onClick={"openMenu()"}
+						onClick={openMenu}
 					>
 						<span class="hamburger-top"></span>
 						<span class="hamburger-middle"></span>
@@ -56,6 +63,12 @@ function Menu() {
 						id="menu"
 						class="absolute flex-col items-center self-end hidden py-8 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
 					>
+						{url.map((data) => (
+							<Link to={data.url} class="hover:text-red-700">
+								{" "}
+								{data.name}{" "}
+							</Link>
+						))}
 						<Link to={"/"} class="hover:text-red-700">
 							Sair
 						</Link>

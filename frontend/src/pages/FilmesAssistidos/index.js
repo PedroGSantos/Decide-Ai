@@ -16,11 +16,9 @@ export function FilmesAssistidos() {
     console.log(id, email, 'test');
     const url = `http://localhost:3333/users`;
 
-    // Make a request to the API to retrieve the list of users
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        // Filter the list of users to find the user with the specified email address
         const user = data.find(user => user.email === email);
 
         if (user && user.watchedmovies) {
@@ -63,11 +61,9 @@ export function FilmesAssistidos() {
   async function updateMovie(movie){
     const url = `http://localhost:3333/users`;
 
-    // Make a request to the API to retrieve the list of users
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        // Filter the list of users to find the user with the specified email address
         const user = data.find(user => user.email === email);
 
         const apiUrl = `http://localhost:3333/users/${user.user_id}/movies`;
@@ -90,11 +86,9 @@ export function FilmesAssistidos() {
   function removeMovie(movie){
     const url = `http://localhost:3333/users`;
 
-    // Make a request to the API to retrieve the list of users
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        // Filter the list of users to find the user with the specified email address
         const user = data.find(user => user.email === email);
 
         const apiUrl = `http://localhost:3333/users/${user.user_id}/movies/${movie.imdbID}`;
