@@ -7,18 +7,24 @@ export function SugerirFilmes() {
 	const navigation = useNavigate();
 	const [dataMovie, setDataMovie] = useState();
 	const [descriptionAndImage, setDescriptionAndImage] = useState("");
+	const api_key = process.env.REACT_APP_API_KEY;
 
 	async function getRandomMovie(e) {
 		e.preventDefault();
 
-		const apiUrl = `https://imdb-api.com/API/AdvancedSearch/k_hytc533h?release_date=${e.target.year.value}-01-01,&genres=${e.target.genre.value}&certificates=us:${e.target.certificates.value}&countries=${e.target.country.value}`;
-
+		const apiUrl = `https://imdb-api.com/API/AdvancedSearch/${api_key}?release_date=${
+			e.target.year.value ? e.target.year.value + "-01-01" : ""
+		},&genres=${e.target.genre.value}&certificates=us:${
+			e.target.certificates.value
+		}&countries=${e.target.country.value}`;
+		console.log(api_key);
+		console.log(apiUrl);
 		await fetch(apiUrl)
 			.then((response) => response.json())
 			.then((data) => {
 				setDataMovie(data.results[0]);
 				const id = data.results[0].id;
-				const url = `https://imdb-api.com/pt/API/Title/k_hytc533h/${id}/FullActor,Posters,Wikipedia`;
+				const url = `https://imdb-api.com/pt/API/Title/${api_key}/${id}/FullActor,Posters,Wikipedia`;
 				fetch(url)
 					.then((response) => response.json())
 					.then((dataa) => {
@@ -38,7 +44,7 @@ export function SugerirFilmes() {
 	}
 
 	function openDetails() {
-		navigation(`detalheFilme/${dataMovie.id}`);
+		navigation(`/detalheFilme/${dataMovie.id}`);
 	}
 
 	function addMovie() {
@@ -56,7 +62,7 @@ export function SugerirFilmes() {
 			}),
 		})
 			.then(() => {
-				navigation(`filmesAssistidos`);
+				navigation(`/filmesAssistidos`);
 			})
 			.catch((error) => console.error(error));
 	}
@@ -140,7 +146,7 @@ export function SugerirFilmes() {
 					<div
 						className="movieContainer"
 						style={{
-							backgroundImage: `linear-gradient(rgba(1,1,1,0.65), rgba(1,1,1,0.65)), url(https://image.tmdb.org/t/p/original/aUQKIpZZ31KWbpdHMCmaV76u78T.jpg)`,
+							backgroundImage: `linear-gradient(rgba(1,1,1,0.65), rgba(1,1,1,0.65)), url(${descriptionAndImage.image})`,
 							backgroundSize: "100%",
 						}}
 					>
