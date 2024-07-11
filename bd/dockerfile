@@ -1,0 +1,9 @@
+FROM postgres:14
+
+ENV POSTGRES_USER decideai
+ENV POSTGRES_PASSWORD decideai123
+ENV POSTGRES_DB decideai
+
+EXPOSE 5432
+
+COPY scripts/seed.sql /docker-entrypoint-initdb.d/
