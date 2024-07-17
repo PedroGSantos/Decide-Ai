@@ -9,7 +9,7 @@ services:
     depends_on:
       - bd
     environment:
-      - POSTGRES_URL=${POSTGRES_URL:-postgresql://decideai:decideai123@localhost:5432/decideai}
+      - POSTGRES_URL=${POSTGRES_URL:-postgresql://decideai:decideai123@bd:5432/decideai}
   bd:
     build:
       context: ./bd
