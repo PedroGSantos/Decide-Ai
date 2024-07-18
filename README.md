@@ -40,6 +40,7 @@ No backend , utilizamos o **Node.js**, uma plataforma construída sobre o motor 
 
 <div align="center">
 
+
 ![image](https://github.com/user-attachments/assets/5c77a6eb-4978-45aa-b67e-437cdc4788ba)
 
 </div>
@@ -50,6 +51,7 @@ No backend , utilizamos o **Node.js**, uma plataforma construída sobre o motor 
 Para o armazenamento de dados no "Decide Ai", optamos por utilizar o PostgreSQL, um sistema de gerenciamento de banco de dados relacional poderoso e avançado. O PostgreSQL é muito utilizado por sua robustez, conformidade com padrões e vasta gama de funcionalidades, tornando-o uma escolha ideal para nossas necessidades. 
 
 <div align="center">
+
 
 ![image](https://github.com/user-attachments/assets/35747706-10f2-46c4-a72f-ea2e7a02ff9d)
 
