@@ -3,7 +3,7 @@ services:
     build:
       context: ./backend
     env_file:
-      - ./backend/.env
+      - ./backend/.envexample
     ports: 
       - "3333:3333"
     depends_on:
