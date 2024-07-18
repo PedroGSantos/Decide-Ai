@@ -2,19 +2,21 @@ services:
   backend:
     build:
       context: ./backend
-    env_file:
-      - ./backend/.envexample
     ports: 
       - "3333:3333"
     depends_on:
       - bd
     environment:
       - POSTGRES_URL=${POSTGRES_URL:-postgresql://decideai:decideai123@bd:5432/decideai}
+    networks:
+      - internal_network
+
   bd:
     build:
       context: ./bd
-    ports:
-      - "5432:5432"
+    networks:
+      - internal_network
+  
   frontend:
     build: 
       context: ./frontend
@@ -22,3 +24,9 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    networks:
+      - internal_network
+
+networks:
+  internal_network:
+    driver: bridge
