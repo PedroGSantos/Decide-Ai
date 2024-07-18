@@ -2,6 +2,14 @@
 
 O "Decide Ai" é uma plataforma inovadora de recomendação de filmes, projetada para ajudar os usuários a escolherem o filme perfeito com base em suas preferências pessoais. A aplicação funciona de maneira intuitiva e eficiente, sendo composta por três principais componentes: uma interface **frontend**, uma **API Rest** e um **banco de dados**.
 
+<div align="center">
+
+
+![image](https://github.com/user-attachments/assets/1c7fef37-5e86-454c-924b-96d80d0c3873)
+
+</div>
+
+
 A interface frontend é onde a mágica começa. É através dela que os usuários interagem diretamente com o sistema. A interface é projetada para ser amigável e de fácil navegação, permitindo que os usuários insiram suas preferências de filmes, como gênero, atores favoritos, diretores, entre outros critérios específicos. A simplicidade e a estética da interface garantem uma experiência agradável e envolvente para o usuário.
 
 Em segundo lugar, temos a API Rest, que serve como o cérebro da operação. Esta API é responsável pela comunicação com varias APIs de filmes disponíveis na internet. Ao receber as preferências do usuário, a API Rest consulta essas fontes externas para coletar informações relevantes sobre os filmes que correspondem aos critérios fornecidos. Além disso, a API implementa a lógica de negócio necessária para filtrar e ordenar as recomendações de maneira eficiente e personalizada, garantindo que as sugestões sejam precisas e relevantes.
