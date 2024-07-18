@@ -4,8 +4,6 @@ Projeto avaliativo da disciplina de Desenvolvimento WEB 2
 
 ### Integrantes
 
-* Áquila Oliveira - RA: 759313
-* Italo Carvalho Vianelli Ribeiro - RA: 769687
 * Pedro Gonçalves dos Santos - RA: 794042
 
 ## Descrição
