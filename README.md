@@ -59,9 +59,19 @@ Para o armazenamento de dados no "Decide Ai", optamos por utilizar o PostgreSQL,
 
 Para a utilização da aplicação são necessários alguns requisitos:
   - Docker
+  - Docker compose
+
+Guia de instalação: 
+- https://docs.docker.com/compose/install/ 
+- https://docs.docker.com/get-docker/
 
 Para executar a aplicação é necessário apenas executar o comando 
 
 ```
 docker compose up -d --build
 ```
+
+Para acessar a aplicação, acesse a interface no endereço `localhost:3000` e utilize as seguintes credenciais de teste para login:
+
+- Email: pedro@gmail.com
+- Senha: 123456
