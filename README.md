@@ -77,3 +77,7 @@ Para acessar a aplicação, acesse a interface no endereço `localhost:3000` e u
 
 - Email: pedro@gmail.com
 - Senha: 123456
+
+Para ativar as funcionalidades completas do sistema, é necessário usar a API de OMDb, basta criar uma API key no https://www.omdbapi.com/ e alterar a Url no arquivo `/src/pages/SugerirFilmes/index.js`
+
+Para a matéria de DevOps, basta apenas o login estar funcionando, demonstrando a conexão entre os containers da aplicação pelo kubernetes

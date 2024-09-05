@@ -2,7 +2,7 @@ import React from "react";
 import "../../index.css";
 
 export function Home() {
-	const url = "http://localhost:3333/users";
+	const url = "/api/users";
 	fetch(url)
 		.then((response) => response.json())
 		.then((data) => {

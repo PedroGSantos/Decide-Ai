@@ -50,7 +50,7 @@ export function SugerirFilmes() {
 	function addMovie() {
 		const id = localStorage.getItem("id");
 
-		const apiUrl = `http://localhost:3333/users/${id}/movies`;
+		const apiUrl = `/api/users/${id}/movies`;
 		fetch(apiUrl, {
 			method: "PUT",
 			headers: {

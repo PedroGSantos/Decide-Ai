@@ -9,8 +9,7 @@ export function Login() {
 	const [errorLogin, setErrorLogin] = useState(false);
 
 	async function login() {
-		console.log(process.env.REACT_APP_API_URL);
-		const url = `${process.env.REACT_APP_API_URL}/users`;
+		const url = `/api/users/`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((data) => {
