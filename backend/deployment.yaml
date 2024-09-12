@@ -22,7 +22,11 @@ spec:
         - containerPort: 3333
         env:
         - name: POSTGRES_URL
-          value: "postgresql://decideai:decideai123@decideai-db:5432/decideai"
+          valueFrom:
+            secretKeyRef:
+              name: decideai-db-secret
+              key: databaseurl
+              
         resources:
           requests:
             memory: "1Gi"
