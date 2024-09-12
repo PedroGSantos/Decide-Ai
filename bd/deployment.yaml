@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: decideai-db
+  labels:
+    app: decideai-db
+spec:
+  selector:
+    matchLabels:
+      app: decideai-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: decideai-db
+    spec:
+      containers:
+      - name: decideai-db
+        image: decideai/bd:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 5432
+        env:
+          - name: POSTGRES_PASSWORD 
+            valueFrom:
+              secretKeyRef:
+                name: decideai-db-secret
+                key: password
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "1"
+          limits:
+            memory: "2Gi"
+            cpu: "2"
+        volumeMounts:
+          - name: decideai-persistent-storage
+            mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: decideai-persistent-storage
+          persistentVolumeClaim:
+            claimName: decideai-pv-claim
