@@ -61,19 +61,22 @@ Para o armazenamento de dados no "Decide Ai", optamos por utilizar o PostgreSQL,
 
 Para a utilização da aplicação são necessários alguns requisitos:
   - Docker
-  - Docker compose
+  - Kubernets/Minikube
 
 Guia de instalação: 
-- https://docs.docker.com/compose/install/ 
 - https://docs.docker.com/get-docker/
+- https://minikube.sigs.k8s.io/docs/
 
-Para executar a aplicação é necessário apenas executar o comando 
+Para executar a aplicação é necessário apenas executar o arquivo minikube-up.sh, e caso ele não esteja como executável é necessário executar previamente o seguinte comando:
 
 ```
-docker compose up -d --build
+sudo chmod +x minikube-up.sh
 ```
 
-Para acessar a aplicação, acesse a interface no endereço `localhost:3000` e utilize as seguintes credenciais de teste para login:
+Para acessar a aplicação, acesse a interface no endereço `localhost:8080`. O acesso via ingress não foi feito, e esse ponto foi discutido com o Professor Delano, que autorizou o acesso via localhost.
+
+
+Utilize as seguintes credenciais de teste para login:
 
 - Email: pedro@gmail.com
 - Senha: 123456
