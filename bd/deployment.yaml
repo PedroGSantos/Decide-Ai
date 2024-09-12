@@ -22,11 +22,12 @@ spec:
         ports:
           - containerPort: 5432
         env:
-          - name: POSTGRES_PASSWORD 
-            valueFrom:
-              secretKeyRef:
-                name: decideai-db-secret
-                key: password
+        - name: POSTGRES_DB
+          value: "decideai"
+        - name: POSTGRES_USER
+          value: "decideai"
+        - name: POSTGRES_PASSWORD
+          value: "decideai123"
         resources:
           requests:
             memory: "1Gi"
