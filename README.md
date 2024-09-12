@@ -62,22 +62,36 @@ Para o armazenamento de dados no "Decide Ai", optamos por utilizar o PostgreSQL,
 Para a utilização da aplicação são necessários alguns requisitos:
   - Docker
   - Docker compose
+  - Kubernets/Minikube
 
 Guia de instalação: 
 - https://docs.docker.com/compose/install/ 
 - https://docs.docker.com/get-docker/
+- https://minikube.sigs.k8s.io/docs/
 
-Para executar a aplicação é necessário apenas executar o comando 
+Para executar a aplicação com kubernetes, é necessário apenas executar o arquivo `minikube-up.sh`, e caso ele não esteja como executável é necessário executar previamente o seguinte comando
 
 ```
-docker compose up -d --build
+sudo chmod +x minikube-up.sh
 ```
 
-Para acessar a aplicação, acesse a interface no endereço `localhost:3000` e utilize as seguintes credenciais de teste para login:
+Esse script já faz toda a configuração para montar um container com minikube, buildar as imagens dos sistemas e construir os serviços a partir dos arquivos .yaml
+
+Após a execução do script, basta acessar a aplicação via kubernetesno endereço `localhost:8080`. Esse endereço foi disponibilizado através do comando `kubectl port-forward`, no final do script.
+
+A configuração via ingress foi feita e é executada no script, entretanto estava inacessível na máquina da dupla, portanto, após alinhamento com o professor, foi disponibilizado também o acesso usando o `kubectl port-forward`. Caso queira testar o acesso via ingress, basta abrir o arquivo `/etc/hosts` e configurar com o ip fornecido pelo comando `minikube ip` com o endereço host `decideai.k8s.local` e depois acessar esse mesmo endereço host em algum navegador. Exemplo:
+
+```
+192.168.49.2 decideai.k8s.local
+```
+
+Utilize as seguintes credenciais de teste para login:
 
 - Email: pedro@gmail.com
 - Senha: 123456
 
 Para ativar as funcionalidades completas do sistema, é necessário usar a API de OMDb, basta criar uma API key no https://www.omdbapi.com/ e alterar a Url no arquivo `/src/pages/SugerirFilmes/index.js`
 
-Para a matéria de DevOps, basta apenas o login estar funcionando, demonstrando a conexão entre os containers da aplicação pelo kubernetes
+Para a matéria de DevOps, basta apenas o login estar funcionando, demonstrando a conexão entre os containers da aplicação pelo kubernetes.
+
+É possível também utilizar a aplicação somente via docker, rodando o comando `docker compose up -d --build` na raiz do projeto.
