@@ -20,8 +20,8 @@ Em resumo, o "Decide Ai" combina uma interface de usuário intuitiva, uma API Re
 
 ## Integrantes
 
-* Pedro Gonçalves dos Santos - RA: 794042
-* Gabriel Orlando - RA: 790728
+* Pedro Gonçalves dos Santos - RA: -
+* Gabriel Orlando - RA: -
 
 ## Tecnologias utilizadas
 **Frontend**
